@@ -13,8 +13,15 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body class="bg-success">
-    <div class="container-fluid bg-success d-inline-flex align-middle">
-      <div id="card" class="col-4 bg-white rounded-3 text-black my-5 mx-auto">
+    <div class="container bg-success d-flex flex-column align-middle">
+      <div class="col-3 mx-auto pt-2">
+        <div class="row">
+          <button id="btnRandom" class="btn btn-info">
+            Get Random Card
+          </button>
+        </div>
+      </div>
+      <div id="card" class="col-4 bg-white rounded-3 my-5 mx-auto">
         <div class="row pb-5 ms-3"><h1 class="figureUp"></h1></div>
         <div class="row py-5 text-center"><h1 class="value"></h1></div>
         <div class="row pt-5 me-3 text-end"><h1 class="figureDwn"></h1></div>

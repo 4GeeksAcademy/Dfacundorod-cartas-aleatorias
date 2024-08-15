@@ -9,6 +9,7 @@ window.onload = function() {
   //write your code here
   const valueCard = ["A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"];
   const figureCard = ["♦", "♥", "♠", "♣"];
+  const FIGURECARDUP = document.querySelector(".figureUp");
 
   function randomElementArray(arr) {
     let numRandom = Math.floor(Math.random() * arr.length);
@@ -16,20 +17,36 @@ window.onload = function() {
   }
 
   function cardConstructor(valueCard, figureCard) {
-    let randomValueCard = randomElementArray(valueCard);
-    let randomfigureCard = randomElementArray(figureCard);
-    let FIGURECARDUP = document.querySelector(".figureUp");
-    const VALUECARD = document.querySelector(".value");
+    const VALUECARDSELECTOR = document.querySelector(".value");
     const FIGURECARDDWN = document.querySelector(".figureDwn");
-    FIGURECARDUP.textContent = `${randomfigureCard}`;
-    VALUECARD.textContent = `${randomValueCard}`;
-    FIGURECARDDWN.textContent = `${randomfigureCard}`;
-    if (randomfigureCard === "♦" || randomfigureCard === "♥") {
+    FIGURECARDUP.textContent = `${figureCard}`;
+    VALUECARDSELECTOR.textContent = `${valueCard}`;
+    FIGURECARDDWN.textContent = `${figureCard}`;
+    if (figureCard === "♦" || figureCard === "♥") {
       FIGURECARDUP.classList.add("text-danger");
       FIGURECARDDWN.classList.add("text-danger");
+      FIGURECARDUP.classList.remove("text-black");
+      FIGURECARDDWN.classList.remove("text-black");
+    }
+    if (figureCard === "♠" || figureCard === "♣") {
+      FIGURECARDUP.classList.add("text-black");
+      FIGURECARDDWN.classList.add("text-black");
+      FIGURECARDUP.classList.remove("text-danger");
+      FIGURECARDDWN.classList.remove("text-danger");
     }
   }
-  cardConstructor(valueCard, figureCard);
+  cardConstructor(
+    randomElementArray(valueCard),
+    randomElementArray(figureCard)
+  );
+
+  let randomBtn = document.getElementById("btnRandom");
+  randomBtn.addEventListener("click", function() {
+    cardConstructor(
+      randomElementArray(valueCard),
+      randomElementArray(figureCard)
+    );
+  });
 };
 
 //<div class="col-4 bg-white rounded-3 text-danger my-5 mx-auto">
