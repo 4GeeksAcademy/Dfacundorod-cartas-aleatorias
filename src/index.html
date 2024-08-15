@@ -13,18 +13,50 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body class="bg-success">
-    <div class="container bg-success d-flex flex-column align-middle">
-      <div class="col-3 mx-auto pt-2">
-        <div class="row">
-          <button id="btnRandom" class="btn btn-info">
+    <div class="container bg-success align-middle">
+      <div class="col-4 mx-auto pt-2 ">
+        <div class="row d-flex justify-content-between">
+          <button id="btnRandom" class="btn btn-info col-5">
             Get Random Card
+          </button>
+          <button id="timeStartBtn" class="btn btn-info col-5">
+            Every 10sec New Card
           </button>
         </div>
       </div>
-      <div id="card" class="col-4 bg-white rounded-3 my-5 mx-auto">
-        <div class="row pb-5 ms-3"><h1 class="figureUp"></h1></div>
-        <div class="row py-5 text-center"><h1 class="value"></h1></div>
-        <div class="row pt-5 me-3 text-end"><h1 class="figureDwn"></h1></div>
+      <div class="container-fluid col-12 d-flex my-5">
+        <div class="col-4 my-4">
+          <div class="form-floating col-6 mb-3">
+            <input
+              id="heigth"
+              class="form-control"
+              type="text"
+              placeholder="Heigth(min 300px)"
+            />
+            <label for="heigth">Heigth (min 300px)</label>
+          </div>
+          <div class="form-floating col-6 mb-3">
+            <input
+              id="width"
+              class="form-control"
+              type="text"
+              placeholder="Width"
+            />
+            <label for="width">Width (min 100px)</label>
+          </div>
+        </div>
+        <div
+          id="card"
+          class="col-4 bg-white fs-1 d-flex flex-column fw-bold rounded-3"
+        >
+          <div class="row mt-0 ms-2">
+            <span class="figureUp"></span>
+          </div>
+          <div class="row my-auto text-center"><span class="value"></span></div>
+          <div class="row mb-0 me-2 text-end">
+            <span class="figureDwn"></span>
+          </div>
+        </div>
       </div>
     </div>
   </body>

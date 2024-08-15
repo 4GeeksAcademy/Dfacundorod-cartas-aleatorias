@@ -47,6 +47,24 @@ window.onload = function() {
       randomElementArray(figureCard)
     );
   });
+  let timeStartBtn = document.getElementById("timeStartBtn");
+  timeStartBtn.addEventListener("click", function() {
+    setInterval(function() {
+      cardConstructor(
+        randomElementArray(valueCard),
+        randomElementArray(figureCard)
+      );
+    }, 10000);
+  });
+  const CARD = document.getElementById("card");
+  let heigth = document.getElementById("heigth");
+  let width = document.getElementById("width");
+  heigth.addEventListener("input", function() {
+    CARD.style.height = heigth.value;
+  });
+  width.addEventListener("input", function() {
+    CARD.style.width = width.value;
+  });
 };
 
 //<div class="col-4 bg-white rounded-3 text-danger my-5 mx-auto">
