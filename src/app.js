@@ -7,18 +7,22 @@ import "./assets/img/4geeks.ico";
 
 window.onload = function() {
   //write your code here
-  const valueCard = ["A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"];
-  const figureCard = ["♦", "♥", "♠", "♣"];
+  const VALUECARD = ["A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"];
+  const FIGURECARD = ["♦", "♥", "♠", "♣"];
   const FIGURECARDUP = document.querySelector(".figureUp");
+  const VALUECARDSELECTOR = document.querySelector(".value");
+  const FIGURECARDDWN = document.querySelector(".figureDwn");
+  let randomBtn = document.getElementById("btnRandom");
+  let timeStartBtn = document.getElementById("timeStartBtn");
+  const CARD = document.getElementById("card");
+  let heigth = document.getElementById("heigth");
+  let width = document.getElementById("width");
 
   function randomElementArray(arr) {
-    let numRandom = Math.floor(Math.random() * arr.length);
-    return arr[numRandom];
+    return arr[Math.floor(Math.random() * arr.length)];
   }
 
   function cardConstructor(valueCard, figureCard) {
-    const VALUECARDSELECTOR = document.querySelector(".value");
-    const FIGURECARDDWN = document.querySelector(".figureDwn");
     FIGURECARDUP.textContent = `${figureCard}`;
     VALUECARDSELECTOR.textContent = `${valueCard}`;
     FIGURECARDDWN.textContent = `${figureCard}`;
@@ -35,30 +39,25 @@ window.onload = function() {
       FIGURECARDDWN.classList.remove("text-danger");
     }
   }
-  cardConstructor(
-    randomElementArray(valueCard),
-    randomElementArray(figureCard)
-  );
 
-  let randomBtn = document.getElementById("btnRandom");
-  randomBtn.addEventListener("click", function() {
+  function renderCard(arr, arr2) {
     cardConstructor(
-      randomElementArray(valueCard),
-      randomElementArray(figureCard)
+      randomElementArray(VALUECARD),
+      randomElementArray(FIGURECARD)
     );
+  }
+  renderCard();
+
+  randomBtn.addEventListener("click", function() {
+    return renderCard();
   });
-  let timeStartBtn = document.getElementById("timeStartBtn");
+
   timeStartBtn.addEventListener("click", function() {
     setInterval(function() {
-      cardConstructor(
-        randomElementArray(valueCard),
-        randomElementArray(figureCard)
-      );
+      renderCard();
     }, 10000);
   });
-  const CARD = document.getElementById("card");
-  let heigth = document.getElementById("heigth");
-  let width = document.getElementById("width");
+
   heigth.addEventListener("input", function() {
     CARD.style.height = heigth.value;
   });
@@ -66,9 +65,3 @@ window.onload = function() {
     CARD.style.width = width.value;
   });
 };
-
-//<div class="col-4 bg-white rounded-3 text-danger my-5 mx-auto">
-//<div class="row pb-5 ms-3"><h1>♥</h1></div>
-//<div class="row py-5 text-center"><h1>7</h1></div>
-//<div class="row pt-5 me-3 text-end"><h1>♥</h1></div>
-//</div>

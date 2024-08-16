@@ -1,7 +1,11 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 
+.value {
+  font-size: 10vh !important;
+}
+
 #card {
   box-shadow: 6px 5px 20px 0px;
-  min-height: 350px;
+  min-height: 450px;
   height: 500px;
 }
